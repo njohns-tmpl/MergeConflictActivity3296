@@ -1,0 +1,53 @@
+Git Commands Used In Sequence
+	git config --global user.name "njohns-tmpl"
+	git config --global user.email "tuq84855@temple.edu"
+	git clone https://github.com/njohns-tmpl/MergeConflictActivity3296.git
+	cd MergeConflictActivity3296
+	git add spec.txt
+	git status
+	git commit -m "Initial commit text doc"
+	git push
+	git checkout -b A
+	notepad spec.txt
+	git add spec.txt
+	git status
+	git commit -m "first edit text doc"
+	git push --set-upstream origin A
+	git switch main
+	git checkout -b B
+	notepad spec.txt
+	git add spec.txt
+	git status
+	git commit -m "second edit text doc"
+	git push --set-upstream origin B
+	git switch main
+	git merge A
+	git merge B
+	notepad spec.txt
+	git add spec.txt
+	git commit -m "resolved merge conflict text doc"
+	git push --set-upstream origin B
+	git status
+	git push
+	git status
+
+General Commands Used and Purpose
+	git config --global user.name - Used to link git cmd local to remote repo username
+	git config --global user.email - Used to link git cmd local to remote repo email
+	git clone - Used to clone remote repo into local repo
+	cd- Used to change directory into repo folder
+	git add - Used to stage local .txt file
+	git status - Used to check repo status
+	git commit -m "" - Used to commit staged changes with a message
+	git push - Used to push commits to remote repo
+	git push --set-upstream origin "" - Used to push to remote repo from a branch
+	notepad - Open a file in notepad
+	git checkout -b - Create a branch
+	git switch main - Switch branch to main
+	git merge - Merge a branch into main branch
+
+Merge Conflict Explanation
+	The merge conflict in this scenario resulted from two different branches modifying the same line in a file, so Git was unable to determine which altered line to merge into the main branch. This merge conflict resulted from the two merges from branches A and B, which both changed line two, resulting in a situation where Git was unable to determine which version of line two from A and B to choose from.
+
+Merge Conflict Resolution 
+	This merge conflict was resolved by choosing which changed line should be merged into main, which was done by the notepad text editor, or could be done via an IDE for code. Once I chose the version of line two and resolved the conflict, merging into main was successful and line two from A was not included, replaced by line two from B.
